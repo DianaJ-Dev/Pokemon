@@ -16,7 +16,7 @@ function App() {
   const [list, setList] = useState([]);
   const [selectOrder, setSelectOrder] = useState();
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5;
+  const itemsPerPage = 6;
   const [selectedPokemon, setSelectedPokemon] = useState(null);
   const [showFavorite, setShowFavorite] = useState(false);  
   

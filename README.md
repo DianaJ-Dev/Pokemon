@@ -24,27 +24,27 @@ Sigue estos pasos para instalar y ejecutar la aplicación localmente:
 
 1. Clona este repositorio:
 
-   \`\`\`bash
-   git clone https://github.com/tuusuario/pokemon-app.git
-   \`\`\`
+   ```bash
+   git clone https://github.com/DianaJ-Dev/Pokemon.git
+   ```
 
 2. Navega al directorio del proyecto:
 
-   \`\`\`bash
+   ```bash
    cd pokemon-app
-   \`\`\`
+   ```
 
 3. Instala las dependencias del proyecto:
 
-   \`\`\`bash
+   ```bash
    npm install
-   \`\`\`
+   ```
 
    o
 
-   \`\`\`bash
+   ```bash
    yarn install
-   \`\`\`
+   ```
 
 ## Configuración
 
@@ -54,23 +54,23 @@ Esta aplicación utiliza la API de **PokéAPI** en su versión GraphQL. No es ne
 
 Una vez que hayas instalado las dependencias, ejecuta el servidor de desarrollo:
 
-\`\`\`bash
+```bash
 npm start
-\`\`\`
+```
 
 o
 
-\`\`\`bash
+```bash
 yarn start
-\`\`\`
+```
 
-Abre tu navegador y navega a \`http://localhost:3000\` para ver la aplicación en funcionamiento.
+Abre tu navegador y navega a `http://localhost:3000\` para ver la aplicación en funcionamiento.
 
 ## Uso de la API
 
 La aplicación realiza consultas a la API de PokéAPI usando **GraphQL** para obtener la información de los Pokémones. Aquí te mostramos una consulta de ejemplo:
 
-\`\`\`graphql
+```graphql
 query getPokemons {
   pokemons(limit: 10, offset: 0) {
     results {
@@ -84,7 +84,7 @@ query getPokemons {
     }
   }
 }
-\`\`\`
+```
 
 ## Funcionalidades
 
@@ -99,26 +99,6 @@ Puedes ordenar los Pokémones por su ID en orden ascendente.
 ### 3. **Filtrar por Nombre**
 
 Permite ordenar la lista alfabéticamente por nombre de Pokémon.
-
-
-## Estructura del Proyecto
-
-El proyecto sigue una estructura estándar de **React**:
-
-\`\`\`
-pokemon-app/
-│
-├── src/
-│   ├── components/      # Componentes reutilizables
-│   ├── services/        # Servicio para realizar las consultas GraphQL
-│   ├── App.js           # Componente principal
-│   └── index.js         # Punto de entrada de la aplicación
-│
-├── public/              # Archivos estáticos
-│
-├── package.json         # Dependencias y scripts
-└── README.md            # Este archivo
-\`\`\`
 
 ## Dependencias
 
