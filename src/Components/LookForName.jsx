@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLazyQuery } from '@apollo/client';
 import { SEARCH_POKEMON_BY_NAME } from '../queries';
+import '../App.css';
 
 export const LookForName = ({ setList }) => {
   
@@ -34,7 +35,7 @@ export const LookForName = ({ setList }) => {
   return (
     <div>
       <form onSubmit={(e) => e.preventDefault()}>
-        <input
+        <input className="input"
           type="text"
           placeholder="Nombre de Pokémon"
           value={input}

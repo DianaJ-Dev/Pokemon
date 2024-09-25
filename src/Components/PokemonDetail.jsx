@@ -1,32 +1,38 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addFavorite, removeFavorite } from '../Store/favoriteSlice';
+import React, { useEffect, useContext } from 'react';
+import { FavoriteContext } from '../context/FavoriteContext';
+import '../App.css';
+import returns from '../img/arrow_back.png';
+import heard from '../img/hearRed.png'
 
 export const PokemonDetail = ({ pokemon, onClose }) => {
-  const dispatch = useDispatch();
-  const favorites = useSelector(state => state.favorites);
-  const isFavorite = favorites.some(fav => fav.id === pokemon.id);
+
+  const {favoriteList, setFavoritelist} = useContext(FavoriteContext)
 
   const toggleFavorite = () => {
-    if (isFavorite) {
-      dispatch(removeFavorite(pokemon));
+    const isAlreadyFavorite = favoriteList.some((fav) => fav.id === pokemon.id);
+  
+    if (!isAlreadyFavorite) {
+      setFavoritelist([...favoriteList, pokemon]);
     } else {
-      dispatch(addFavorite(pokemon));
+      const updatedList = favoriteList.filter((fav) => fav.id !== pokemon.id);
+      setFavoritelist(updatedList);
     }
   };
 
   useEffect(() => {
-    console.log('Favoritos actuales:', favorites);
-  }, [favorites]);
+    console.log('Favoritos actuales:', favoriteList);
+  }, [favoriteList]);
 
   return (
-    <div className="pokemon-card">
+    <div className="detail-card">
       <header className="pokemon-header">
-        <div className="back-arrow" onClick={onClose}>←</div>
-        <div className={`heart-icon ${isFavorite ? 'favorite' : ''}`} onClick={toggleFavorite}>
-          ♥
+        <div className="back-arrow" onClick={onClose}>
+          <img src={returns} alt="Back Arrow" />
         </div>
-        <h1>{pokemon.name}</h1>
+        <div className="favorite" onClick={toggleFavorite}>
+          <img src={heard} alt="Back Arrow" style={{ width: '40px', height: '40px', objectFit: 'contain', cursor: 'pointer' }} />
+        </div>
+        <h2>{pokemon.name}</h2>
         <span className="pokemon-id">{pokemon.id}</span>
       </header>
 

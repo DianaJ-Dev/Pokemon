@@ -20,7 +20,7 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   
     return (
       <div>
-        <ul style={{ listStyleType: 'none', display: 'flex', justifyContent: 'center' }}>
+        <ul className="pagination">
           {renderPageNumbers()}
         </ul>
       </div>
